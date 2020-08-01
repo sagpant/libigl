@@ -59,7 +59,7 @@ IGL_INLINE bool igl::readOFF(
   bool has_vertexColors = string(header).compare(0,COFF.length(),COFF)==0;
   // Second line is #vertices #faces #edges
   int number_of_vertices;
-  int number_of_faces;
+  int number_of_faces = 0;
   int number_of_edges;
   char tic_tac_toe;
   char line[1000];
@@ -134,7 +134,7 @@ IGL_INLINE bool igl::readOFF(
       face.resize(valence);
       for(int j = 0;j<valence;j++)
       {
-        int index;
+        int index = 0;
         if(j<valence-1)
         {
           fscanf(off_file,"%d",&index);
